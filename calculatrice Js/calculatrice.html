@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculatrice Js</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap
+    .min.css">
+    <link rel="stylesheet" href="calculatrice.css"">
+    <script type="text/javascript">
+        function validateAndCalculate() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('errorMessage').textContent = 'Veuillez saisir deux nombres valides.';
+                return;
+            }
+            var sum = num1 + num2;
+            var difference = num1 - num2;
+            var product = num1 * num2;
+            var quotient = num1 / num2; 
+            document.getElementById('sum').value = sum;
+            document.getElementById('difference').value = difference;
+            document.getElementById('product').value = product;
+            document.getElementById('quotient').value = quotient;
+            document.getElementById('errorMessage').textContent = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculatrice</h1>
+    <p><marquee>Bienvenue sur notre page,Cette page permet de calculer la somme, la différence,
+     le produit et le quotient de deux nombres.</marquee></p>
+    <label for="num1">Nombre 1 :</label>
+    <input type="text" id="num1" name="num1" />
+    <br>
+    <label for="num2">Nombre 2 :</label>
+    <input type="text" id="num2" name="num2" />
+    <br>
+    <button type="button" onclick="validateAndCalculate()">Calculer</button>
+    <br>
+    <label for="sum">Somme :</label>
+    <input type="text" id="sum" name="sum" readonly />
+    <br>
+    <label for="difference">Différence :</label>
+    <input type="text" id="difference" name="difference" readonly />
+    <br>
+    <label for="product">Produit :</label>
+    <input type="text" id="product" name="product" readonly />
+    <br>
+    <label for="quotient">Quotient :</label>
+    <input type="text" id="quotient" name="quotient" readonly />
+    <br>
+    <span id="errorMessage" style="color: red;"></span>
+</body>
+</html>
